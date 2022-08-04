@@ -23,7 +23,7 @@ Additional endpoint for administrator:
 ## Installation
 Download project  
 ```
-git clone https://gitlab.com/Zhichi57/btc-wallet-api.git
+git clone https://github.com/Zhichi57/btc-wallet-api.git
 cd btc-wallet-api  
 ```
 Compile and run environment with docker-compose  
