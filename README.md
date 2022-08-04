@@ -32,3 +32,9 @@ docker-compose up -d --build
 ```    
   
 The service will be available at `127.0.0.1:8000`
+
+## Testing
+Run testing with the command
+```
+docker-compose exec fastapi pytest
+```
