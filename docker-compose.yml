@@ -1,0 +1,26 @@
+version: "3.3"
+services:
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  fastapi:
+    build:
+      context: .
+      dockerfile: FastAPIDockerFile
+    environment:
+      CELERY_BROKER_URL: ${CELERY_BROKER_URL}
+    env_file:
+      - .env
+    restart: on-failure
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+volumes:
+  pgdata:
