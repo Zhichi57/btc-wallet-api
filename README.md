@@ -7,7 +7,7 @@ transfer BTC to other wallets inside the platform. Platform makes 1.5% profit fr
 Transactions between users
 
 The following RESTful API endpoints are implemented:
-- POST /users - creates user.Returns a token that will authenticate all other requests for this user.
+- POST /users - creates user. Returns a token that will authenticate all other requests for this user.
 - POST /wallets - create BTC wallet for the authenticated user. 1 BTC (or 100000000
 satoshi) is automatically granted to the new wallet upon creation. User may register
 up to 10 wallets. Returns wallet address and current balance in BTC and USD.
@@ -32,6 +32,9 @@ docker-compose up -d --build
 ```    
   
 The service will be available at `127.0.0.1:8000`
+
+### Note
+For endpoints with authorization, it is necessary to send a new header in the request with name `token` and value received in the response to the `/users` request
 
 ## Testing
 Run testing with the command
